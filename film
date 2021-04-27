@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="{block:English}en{/block:English}{block:Spanish}es
+{/block:Spanish}{block:French}fr{/block:French}{block:Italian}it
+{/block:Italian}{block:German}de{/block:German}{block:Polish}pl{/block:Polish}{block:Japanese}ja{/block:Japanese}">
+    <head>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+ 
+        <title>{Title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+    
+        <meta name="color:Background" content="#fffcd1"/>
+        <meta name="color:Text" content="#fb4c16"/>
+        <meta name="color:Link Hover" content="#0623fb"/>
+        
+        <meta name="font:Body" content="Arial, Helvetica, sans-serif"/>
+        <meta name="font:Title" content="Arial, Helvetica, sans-serif"/>
+        
+        <meta name="if:Show Facebook Share Button" content="1"/>
+        <meta name="if:Show Twitter Share Button" content="1"/>
+        <meta name="if:Show Google Plus Share Button" content="0"/>
+        <meta name="if:Show Pinterest Share Button" content="0"/>
+        <meta name="if:Show Like" content="1"/>
+        <meta name="if:Show Reblog" content="1"/>
+        <meta name="if:Show Archive" content="1"/>
+        <meta name="if:Show Random" content="0"/>
+        <meta name="if:Show RSS" content="1"/>
+        <meta name="if:Show Tags" content="0"/>
+     
+         <meta name="text:Facebook" content=""/>
+         <meta name="text:Twitter" content=""/>
+         <meta name="text:Instagram" content=""/>
+         <meta name="text:Snapchat" content=""/>
+         <meta name="text:Vimeo" content=""/>
+         <meta name="text:Spotify" content=""/>
+         <meta name="text:Etsy" content=""/>
+         <meta name="text:Dribbble" content=""/>
+         <meta name="text:Behance" content=""/>
+         <meta name="text:Youtube" content=""/>
+         <meta name="text:Github" content=""/>
+         <meta name="text:LinkedIn" content=""/>
+        
+        
+        
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">        
+        
+    
+    
+      <style>
+      
+       
+        body {
+            line-height:150%;
+            font-size:18px;
+            font-weight:400;
+            color:{color:Text};
+            max-width:100%;
+            overflow-x:hidden;
+            background-color:{color:Background};
+            font-family:{font:Body};
+            display:visible;
+        }
+        
+        a:link,a:visited{
+            text-decoration:none;
+            color:inherit;
+        }
+        
+        a:hover{
+            color:{color:Link Hover};
+        }
+      
+        #posts img{
+            width:100%;
+             height:100%;
+        }
+        
+         #posts {
+             width:70%;
+             margin:0 auto;
+             margin-top:70px;
+             clear:both;
+         }
+         
+         
+         .header{
+            height:auto;
+         }
+         
+         h1{
+             margin:30px;
+             text-transform:uppercase;
+             text-align:center;
+             font-size:30px;
+             font-weight:700;
+             letter-spacing:1.3px;
+             font-family:{font:Title};
+         }
+         
+         #description{
+             text-align:center;
+             font-size:20px;
+             font-weight:600;
+         }
+         
+         h3{
+             text-align:center;
+             font-size:24px;
+             font-weight:400;
+         }
+         
+         .overlay {
+          height: 100%;
+          width: 0;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color:{color:Background};
+          overflow-x: hidden;
+          transition: 0.5s;
+        }
+        
+        .overlay-content {
+          position: relative;
+          width: 100%;
+          top:25%;
+          margin-top:50px;
+          text-align: center;
+          }
+        
+        .overlay a {
+          padding:10px;
+          text-decoration: none;
+          font-size:25px;
+          color:{color:Text};
+          display: block;
+          transition: 0.3s;
+        }
+        
+        .overlay a:hover, .overlay a:focus {
+          color:{color:Link Hover};
+        }
+        
+        .overlay .closebtn {
+          position: absolute;
+          top: 20px;
+          right: 45px;
+          font-size: 70px;
+        }
+     
+        
+        
+        .ham-menu{
+            float:left;
+            vertical-align:middle;
+            margin-left:50px;
+            font-size:30px;
+            cursor:pointer;
+        }
+        
+        .searchbutton{
+            color:black;
+            vertical-align:middle;
+            font-size:23px;
+            margin-left:-50px;
+            color:{color:Background};
+        }
+        
+        .date{
+            text-align:center;
+            line-height:0%;
+            padding:0 0 20px;
+            margin-top:-8px;
+            font-style:italic;
+        }
+        
+        .openbtnsch {
+          float:right;
+          cursor: pointer;
+          margin-right:50px;
+          font-size:23px;
+        }
+        
+        .openbtnsch:hover {
+          background:{color:Link Hover};
+        }
+        
+        .overlaysch {
+          height: 100%;
+          width:0;
+          display:block;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          right: 0;
+          background-color:{color:Background};
+          overflow-x: hidden;
+          transition: 0.5s;
+        }
+        
+        .overlay-contentsch {
+          position: relative;
+          top: 46%;
+          width:70%;
+          text-align: center;
+          margin-top: 30px;
+          margin: auto;
+        }
+        
+        .overlaysch .closebtnsch {
+          position: absolute;
+          top: 20px;
+          right: 45px;
+          font-size: 70px;
+          cursor: pointer;
+          color:{color:Text};
+        }
+        
+        .overlaysch .closebtnsch:hover {
+          color:{color:Link Hover};
+        }
+        
+       
+       
+        .overlaysch input[type=text] {
+          padding: 15px;
+          font-size: 17px;
+          border: none;
+          width:70%;
+          background:{color:Text};
+        }
+        
+        .overlaysch input[type=text]:hover {
+          background:{color:Link Hover};
+        }
+        
+        .overlaysch button:hover {
+          background:{color:Link Hover};
+        }
+        
+        .text-body{
+            margin-top:40px;
+            border-top:1px solid {color:Text};
+            border-bottom:1px solid {color:Text};
+        }
+        
+        .meta{
+            list-style:none;
+            text-align:center;
+            margin-bottom:20px;
+            margin-top:20px;
+            {block:IfNotShowTags} 
+             margin-top:20px;
+            {block:IfNotShowTags} 
+        }
+        
+        .meta li{
+            display:inline-block;
+            padding-right:12px;
+        }
+        
+        .reblog_button:before {
+        content: 'Reblog';
+        }
+        .reblog_button svg {
+            display: none;
+        }
+        
+        .tags{
+            list-style:none;
+            text-align:center;
+        }
+        
+        .tags li{
+            display:inline-block;
+        }
+        
+        .tags li:before{
+            content:"#";
+        }
+        
+        .copyright{
+            width:100%;
+            margin:0 auto;
+            margin-top:20px;
+            position:relative;
+        
+        }
+        
+        #footer{
+           font-size:20px;
+           width:100%;
+           margin:0 auto;
+        }
+        
+        .prev{
+            float:left;
+            margin:60px 0 5px 50px;
+        }
+        
+        .next{
+            float:right;
+            margin:60px 50px 5px 0;
+            
+        }
+        
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
+        
+          .dropdown-content {
+         background-color:{color:Background};
+         visibility: hidden; /* hides sub-menu */
+         opacity: 0;
+         position:absolute;
+         transform: translateY(-2em);
+         z-index: -1;
+         text-align:center;
+         max-width:100%;
+         transition: all 0.4s ease-in-out 0s;
+     }   
+     
+     .dropdown:hover .dropdown-content{
+         visibility: visible;
+         opacity: 1;
+         z-index: 1;
+         transform: translateY(0%);
+         transition-delay: 0s, 0s, 0.3s; 
+     }
+     
+     .dropdown a{
+         color:{color:Text};
+     }
+     
+        @keyframes fadeInUp {
+        from {
+         transform: translate3d(0,40px,0)
+        }
+        to {
+         transform: translate3d(0,0,0);
+         opacity: 1
+        }
+    }
+
+    @-webkit-keyframes fadeInUp {
+        from {
+            transform: translate3d(0,40px,0)
+        }
+        to {
+            transform: translate3d(0,0,0);
+            opacity: 1
+        }
+     }
+     
+    
+    
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            opacity: 0;
+            animation-name:fadeInUp;
+            -webkit-animation-name: fadeInUp;: both;
+            
+        }
+    
+
+      @media only screen and (max-width : 480px) {
+          
+          h1{
+              font-size:23px;
+          }
+          
+          #posts{
+              width:100%;
+          }
+
+          .prev{
+              margin:10px 0 0 5px;
+          }
+          
+          .next{
+              margin:10px 5px 0 0;
+          }
+          
+          .openbtnsch{
+              margin-right:5px;
+              font-size:20px;
+          }
+          
+          .ham-menu{
+              margin-left:5px;
+              font-size:20px;
+          }
+          
+          .meta{
+              font-size:14.5px;
+          }
+          
+          
+      }
+      
+      {CustomCSS}
+      
+      </style>
+    
+    
+    </head>
+    
+    <body>
+    
+    <div class="header">    
+           <div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+     
+     <a href="{BlogURL}">Home</a>
+     {block:IfShowBrowse}
+        <div class="dropdown">
+    <a class="dropbtn">Browse<i class="fa fa-caret-down"></i>
+    </a>
+    <div class="dropdown-content">
+      {block:IfBrowseTag1} 
+                              <a href="/tagged/{text:Browse Tag1}">
+                               {text:Browse Tag1}
+                              </a>
+                         {/block:IfBrowseTag1}
+                         
+                         {block:IfBrowseTag2} 
+                              <a href="/tagged/{text:Browse Tag2}">
+                               {text:Browse Tag2}
+                              </a>
+                         {/block:IfBrowseTag2} 
+                         
+                         {block:IfBrowseTag3}
+                              <a href="/tagged/{text:Browse Tag3}">
+                               {text:Browse Tag3}
+                              </a>
+                         {/block:IfBrowseTag3}      
+                              
+                         {block:IfBrowseTag4}
+                              <a href="/tagged/{text:Browse Tag4}">
+                               {text:Browse Tag4}
+                              </a>
+                         {/block:IfBrowseTag4}
+                         
+                         {block:IfBrowseTag5}
+                              <a href="/tagged/{text:Browse Tag5}">
+                               {text:Browse Tag5}
+                              </a>
+                         {/block:IfBrowseTag5}
+                         
+                         {block:IfBrowseTag6}
+                              <a href="/tagged/{text:Browse Tag6}">
+                               {text:Browse Tag6}
+                              </a>
+                         {/block:IfBrowseTag6}      
+                           
+                         {block:IfBrowseTag7}     
+                              <a href="/tagged/{text:Browse Tag7}">
+                               {text:Browse Tag7}
+                              </a>
+                         {/block:IfBrowseTag7}
+                         
+                         {block:IfBrowseTag8}
+                              <a href="/tagged/{text:Browse Tag8}">
+                               {text:Browse Tag8}
+                              </a>
+                         {/block:IfBrowseTag8}      
+                           
+                         {block:IfBrowseTag9}    
+                              <a href="/tagged/{text:Browse Tag9}">
+                               {text:Browse Tag9}
+                              </a>
+                         {/block:IfBrowseTag9}     
+                           
+                         {block:IfBrowseTag10}     
+                              <a href="/tagged/{text:Browse Tag10}">
+                               {text:Browse Tag10}
+                              </a>
+                         {/block:IfBrowseTag10}      
+                        
+    </div>
+  </div> 
+  {/block:IfShowBrowse}
+     
+     {block:IfShowArchive}
+        <a href="/archive">Archive</a>
+			   {/block:IfShowArchive}
+              {block:IfShowRandom}
+			     <a href="/random">Random</a>
+			   {/block:IfShowRandom}
+               {block:IfShowRSS}
+			     <a href="{RSS}">RSS</a>
+               {/block:IfShowRSS}       
+                 
+                  {block:HasPages}
+                          {block:Pages}
+                           <a href="{URL}">{Label}</a>
+                          {/block:Pages}
+                     {/block:HasPages}
+                      {block:IfFacebook}
+      <a href="{text:Facebook}">Facebook</a>
+     {/block:IfFacebook}
+    {block:IfTwitter}
+      <a href="{text:Twitter}">Twitter</a>
+     {/block:IfTwitter}
+     {block:IfInstagram}
+      <a href="{text:Instagram}">Instagram</a>
+     {/block:IfInstagram}
+     {block:IfSnapchat}
+      <a href="{text:Snapchat}">Snapchat</a>
+     {/block:IfSnapchat}
+     {block:IfVimeo}
+      <a href="{text:Vimeo}">Vimeo</a>
+     {/block:IfVimeo}
+     {block:IfSpotify}
+      <a href="{text:Spotify}">Spotify</a>
+     {/block:IfSpotify}
+     {block:IfEtsy}
+      <a href="{text:Etsy}">Etsy</a>
+     {/block:IfEtsy}
+     {block:IfDribbble}
+      <a href="{text:Dribbble}">Dribbble</a>
+     {/block:IfDribbble}
+     {block:IfBehance}
+      <a href="{text:Behance}">Behance</a>
+     {/block:IfBehance}
+     {block:IfYoutube}
+      <a href="{text:Youtube}">Youtube</a>
+     {/block:IfYoutube}
+     {block:IfGithub}
+      <a href="{text:Github}">Github</a>
+     {/block:IfGithub}
+     {block:IfLinkedIn}
+      <a href="{text:LinkedIn}">Linked In</a>
+     {/block:IfLinkedIn}
+     
+     
+     <p class="copyright">
+     </p>
+     
+  </div>
+</div>
+<span class="ham-menu" onclick="openNav()"><i class='fas fa-grip-lines'></i>
+ </span>
+        
+        
+ 
+ <div id="myOverlay" class="overlaysch">
+  <span class="closebtnsch" onclick="closeSearch()" title="Close Overlay">×</span>
+  <div class="overlay-contentsch">
+    <form action="/search" method="get">
+    <input type="text" name="q" value="{SearchQuery}"/>
+    <span class="searchbutton"><i class='fas fa-search'></i></span>
+</form>
+  </div>
+</div>
+
+
+<span class="openbtnsch" onclick="openSearch()"><i class='fas fa-search'></i></span>
+
+    <a href="{BlogURL}"><h1>{Title}</h1></a>
+        {block:Description}
+            <p id="description">{Description}</p>
+        {/block:Description}
+   </div>
+   
+        <div id="posts">
+            {block:Posts}{block:Text}
+                    <div class="post text">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+                        <div class="date">
+                           {MonthNumber}&nbsp;{ShortMonth},{Year}
+                        </div>
+                     {block:PermalinkPage}     
+                        <div class="text-body">
+                         {Body}
+                        </div>
+                        {block:IfShowTags} 
+                        {block:HasTags}
+                    <ul class="tags">
+                        {block:Tags}
+                            <li>
+                                <a href="{TagURL}">{Tag}&nbsp;</a>
+                            </li>
+                        {/block:Tags}
+                    </ul>
+                {/block:HasTags}  
+                {block:IfShowTags} 
+                         <div class="meta">
+                      {block:IfShowLike}
+                          <li>
+                           {LikeButton size="16"}
+                          </li>
+                    {/block:IfShowLike} 
+                         {block:IfShowFacebookShareButton} 
+                           <li>
+<a href="https://www.facebook.com/sharer.php?u={Permalink}{block:Title}&t={Title}{/block:Title}" target="_new">Facebook</a>                               
+                           </li>
+                           {/block:IfShowFacebookShareButton}
+                           
+                           {block:IfShowTwitterShareButton}
+                           <li>
+<a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" target="_new">Twitter</a>  
+                           </li>
+                           {/block:IfShowTwitterShareButton}
+                           {block:IfShowPinterestShareButton}
+                           <li>
+<a href="http://pinterest.com/pin/create/button/?url={Permalink}&media={PhotoURL-500}" target="_new">Pinterest</a>                              
+                           </li>
+                           {/block:IfShowPinterestShareButton}
+                           {block:IfShowGooglePlusShareButton}
+                           <li>
+<a href="https://plus.google.com/share?url={Permalink}"target="_new"> 
+         Google+
+		 </a>                           
+                           </li>
+                           {/block:IfShowGooglePlusShareButton}
+                          {block:IfShowReblog}
+                            <li>
+                      {ReblogButton size="16"}                          
+                          </li>
+                          {/block:IfShowReblog}
+                         </div>
+                     {/block:PermalinkPage}     
+                    </div>
+                {/block:Text}{block:Photo}
+                    <div class="post photo">
+                        {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>{LinkCloseTag}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                {/block:Photo}{block:Panorama}
+                    <div class="post panorama">
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                        {LinkCloseTag}{block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                {/block:Panorama}{block:Photoset}
+                    <div class="post photoset">
+                        {Photoset-500}{block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                {/block:Photoset}{block:Quote}
+                    <div class="post quote">
+                        "{Quote}"
+
+                        {block:Source}
+                            <div class="source">{Source}</div>
+                        {/block:Source}
+                    </div>
+                {/block:Quote}{block:Link}
+                    <div class="post link">
+                        <a href="{URL}" class="link" {Target}>{Name}</a>
+
+                        {block:Description}
+                            <div class="description">{Description}</div>
+                        {/block:Description}
+                    </div>
+                {/block:Link}{block:Chat}
+                    <div class="post chat">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        <ul class="chat">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                        <span class="label">{Label}</span>
+                                    {/block:Label}{Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
+                    </div>
+                {/block:Chat}{block:Video}
+                    <div class="post video">
+                        {Video-500}{block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                {/block:Video}{block:Audio}
+                    <div class="post audio">
+                        {AudioEmbed}{block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                {/block:Audio}{/block:Posts}
+        </div>
+
+        <div id ="footer">
+            {block:PreviousPage}
+                <a class="prev" href="{PreviousPage}">
+                <i class='fas fa-arrow-left'></i>
+</a>
+            {/block:PreviousPage}{block:NextPage}
+                <a class="next" href="{NextPage}"><i class='fas fa-arrow-right'></i></a>
+            {/block:NextPage}
+          
+        </div>
+        <script type="text/javascript">
+    $('body').css({'display' : 'none'}).fadeIn(400);
+  </script>
+    </body>
+     <script>
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+
+function openSearch() {
+  document.getElementById("myOverlay").style.width = "100%";
+}
+
+function closeSearch() {
+  document.getElementById("myOverlay").style.width = "0%";
+}
+</script>
+
+</html>
